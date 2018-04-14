@@ -61,6 +61,7 @@ module.exports = function(config){
                 console.error(`Could not upload file ${file.path}`);
             }
             cb(null,file); 
+            return; 
         }
         cb(null,file);
     });
