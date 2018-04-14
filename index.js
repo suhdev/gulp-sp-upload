@@ -40,7 +40,7 @@ module.exports = function(config){
         }
         if (file.isBuffer() || file.isStream()){
             try {
-                var tx = await folder.files.add(path.basename(file.path),file.contents);
+                var tx = await folder.files.add(path.basename(file.path),file.contents,true);
                 if (typeof config.data === "function"){
                     var data = config.data(path.basename(file.path),file.path); 
                     if (data){
