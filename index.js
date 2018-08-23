@@ -54,10 +54,24 @@ module.exports = function(config){
                     }
                 }
                 if (config.majorCheckIn || config.publish){
-                    await tx.file.checkin('Checked in using gulp-sp-upload',$sp.CheckinType.Major); 
+                    var f = await folder.files.getByName(path.basename(file.path));
+                    try {
+                        console.log('Attempting to performing a major check in'); 
+                        await f.checkin('Checked in using gulp-sp-upload',$sp.CheckinType.Major); 
+                    }catch(err){
+                        console.log('Major check in has failed, attempting to publish instead');
+                        await f.publish('publishing');
+                    }
                 }
                 if (config.minorCheckIn || config.draft){
-                    await tx.file.checkin('Checked in using gulp-sp-upload',$sp.CheckinType.Minor); 
+                    var f = await folder.files.getByName(path.basename(file.path));
+                    try {
+                        console.log('Attempting to performing a minor check in'); 
+                        await tx.file.checkin('Checked in using gulp-sp-upload',$sp.CheckinType.Minor); 
+                    }catch(err){
+                        console.log('Minor check in has failed, attempting to publish instead');
+                        await f.publish('publishing');
+                    }
                 }
                 if (config.verbose){
                     console.log(`Uploaded file ${path.basename(file.path)} successfully`); 
