@@ -46,12 +46,18 @@ module.exports = function(config){
                     if (data){
                         try {
                             var item = await tx.file.getItem();
-                            var updated = await item.update(data)
+                            var updated = await item.update(data); 
 
                         }catch(err){
                             console.error(err); 
                         }
                     }
+                }
+                if (config.majorCheckIn || config.publish){
+                    await tx.file.checkin('Checked in using gulp-sp-upload',$sp.CheckinType.Major); 
+                }
+                if (config.minorCheckIn || config.draft){
+                    await tx.file.checkin('Checked in using gulp-sp-upload',$sp.CheckinType.Minor); 
                 }
                 if (config.verbose){
                     console.log(`Uploaded file ${path.basename(file.path)} successfully`); 
