@@ -15,7 +15,7 @@ module.exports = function (config) {
   }
   if (!config.folderName) {
     throw new Error(
-      `Pelase provider folder name to which you want to upload your files 'folderName' i.e. SiteAssets`
+      `Please provide folder name to which you want to upload your files 'folderName' i.e. SiteAssets`
     );
   }
 
