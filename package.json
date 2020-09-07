@@ -13,13 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@pnp/common": "^1.0.4",
-    "@pnp/logging": "^1.0.4",
-    "@pnp/nodejs": "^1.0.4",
-    "@pnp/nodejs-commonjs": "^2.0.8",
-    "@pnp/odata": "^1.0.4",
-    "@pnp/sp": "^1.0.4",
-    "@pnp/sp-commonjs": "^2.0.8",
+    "@pnp/common-commonjs": "^2.0.9",
+    "@pnp/logging-commonjs": "^2.0.9",
+    "@pnp/nodejs-commonjs": "^2.0.9",
+    "@pnp/odata-commonjs": "^2.0.9",
+    "@pnp/sp-commonjs": "^2.0.9",
     "node-fetch": "^2.1.2"
   },
   "devDependencies": {
